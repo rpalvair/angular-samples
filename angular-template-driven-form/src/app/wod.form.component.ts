@@ -17,9 +17,8 @@ export class WodFormComponent {
 
   onSubmit() {
     this.submitted = true;
+    
   }
-
-  get diagnostic() { return JSON.stringify(this.current); }
 }
 
 

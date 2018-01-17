@@ -1,17 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { WodFormComponent } from './wod.form.component';
+import { NoPrefixValidatorDirective } from './no-prefix.directive';
 
 
 @NgModule({
   declarations: [
-    WodFormComponent
+    WodFormComponent,
+    NoPrefixValidatorDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [WodFormComponent]
