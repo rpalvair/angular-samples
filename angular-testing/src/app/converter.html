@@ -1,20 +1,31 @@
 <div class="container">
-
-    <form (ngSubmit)="convertToBase64()" #base64Form="ngForm">
-        <div class="form-group">
-            <label for="name">Input</label>
-            <input type="text" class="form-control" id="input" required [(ngModel)]="input" name="input" #input="ngModel">
-            <div *ngIf="input.invalid && (input.dirty || input.touched)" class="alert alert-danger">
-                <div *ngIf="input.errors.required">
-                    Veuillez renseigner une valeur
+    <div [hidden]="submitted">
+        <h1>Conversion</h1>
+        <form (ngSubmit)="convertToBase64()" #base64Form="ngForm">
+            <div class="form-group">
+                <label for="valeur">Input</label>
+                <input type="text" class="form-control" id="valeur" required [(ngModel)]="input" name="valeur" #valeur="ngModel">
+                <div *ngIf="valeur.invalid && (valeur.dirty || valeur.touched)" class="alert alert-danger">
+                    <div *ngIf="valeur.errors.required">
+                        Veuillez renseigner une valeur
+                    </div>
                 </div>
             </div>
+            <button type="submit" class="btn btn-success" [disabled]="!base64Form.form.valid">Go!</button>
+            <button type="button" class="btn btn-default" (click)="base64Form.reset()">Reset</button>
+        </form>
+    </div>
 
+    <div [hidden]="!submitted">
+        <h1>Résultat de la conversion:</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <span style="font-weight:bold">Entrée :</span> {{input}}</div>
+            <div class="col-xs-6  pull-left">
+                <span style="font-weight:bold">Résultat :</span> {{ result }}</div>
         </div>
-
-        <button type="submit" class="btn btn-success" [disabled]="!base64Form.form.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="base64Form.reset()">Reset</button>
-    </form>
-
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Recommencer</button>
+    </div>
 
 </div>
