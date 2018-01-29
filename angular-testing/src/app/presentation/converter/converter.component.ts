@@ -1,5 +1,5 @@
-import { Base64Service } from "./base64.service";
 import { Component } from "@angular/core";
+import { Base64Service } from "../../application/base64/base64.service";
 
 @Component({
   selector: "converter",

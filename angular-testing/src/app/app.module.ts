@@ -1,8 +1,9 @@
-import { Base64Service } from './base64.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { ConverterComponent } from './converter.component';
+import { ConverterComponent } from './presentation/converter/converter.component';
+import { Base64Service } from './application/base64/base64.service';
 
 
 
