@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h1>Wod List</h1>
+    <form (ngSubmit)="onSubmit()" #wodForm="ngForm">
+
+        <div class="form-group">
+            <label for="wod">Select a wod please</label>
+            <select class="form-control" id="wod" required [(ngModel)]="current" name="current">
+                <option *ngFor="let wod of wods" [value]="wod">{{wod.name}}</option>
+            </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-success" [disabled]="!wodForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="wodForm.reset()">Reset</button>
+    </form>
+</div>
+<router-outlet></router-outlet>
