@@ -14,7 +14,7 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.json",
+            "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
@@ -26,22 +26,6 @@
             "scripts": []
           },
           "configurations": {
-            "source": {
-              "fileReplacements": [
-                {
-                  "replace": "src/undefined",
-                  "with": "src/environments/environment.ts"
-                }
-              ]
-            },
-            "dev": {
-              "fileReplacements": [
-                {
-                  "replace": "src/undefined",
-                  "with": "src/environments/environment.ts"
-                }
-              ]
-            },
             "production": {
               "optimization": true,
               "outputHashing": "all",
@@ -54,7 +38,7 @@
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "src/undefined",
+                  "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
@@ -67,12 +51,6 @@
             "browserTarget": "angular-routing:build"
           },
           "configurations": {
-            "source": {
-              "browserTarget": "angular-routing:build:source"
-            },
-            "dev": {
-              "browserTarget": "angular-routing:build:dev"
-            },
             "production": {
               "browserTarget": "angular-routing:build:production"
             }
@@ -90,6 +68,7 @@
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
               "src/styles.css"
@@ -104,9 +83,12 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.json"
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
             ],
-            "exclude": []
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -127,9 +109,11 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "e2e/tsconfig.json"
+              "e2e/tsconfig.e2e.json"
             ],
-            "exclude": []
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
