@@ -1,5 +1,6 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { MessageExtractor } from './message.extractor';
-import { Observable } from "rxjs/Observable";
 import { Message } from "../../domain/message";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -14,7 +15,7 @@ export class MessageService {
     }
 
     findAll(): Observable<Message[]> {
-        return this.http.get("api/messages")
+        return this.http.get<Message[]>("api/messages")
             .pipe(
                 catchError(this.handleError)
             );
@@ -22,7 +23,7 @@ export class MessageService {
     }
     private handleError(error: any) {
         console.error(error);
-        return Observable.throw(error);
+        return observableThrowError(error);
     }
 
 
