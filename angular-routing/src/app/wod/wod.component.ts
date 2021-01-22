@@ -2,11 +2,11 @@ import { Component } from "@angular/core";
 import { Wod } from "./wod";
 
 @Component({
-    selector: 'wod-list',
-    templateUrl: './wod-list.html',
+    selector: 'wod',
+    templateUrl: './wod.html',
     styleUrls: ['./wod.component.css']
 })
-export class WodListComponent {
+export class WodComponent {
 
     wods: Wod[] = this.getWodList();
     current: Wod;

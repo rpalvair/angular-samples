@@ -1,6 +1,6 @@
 import { AppComponent } from './app.component';
-import { WodComponent } from './wod.component';
-import { WodListComponent } from './wod-list.component';
+import { WodViewComponent } from './wod/view/wod.view.component';
+import { WodComponent } from './wod/wod.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,10 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'wod/:name', component: WodComponent },
+  { path: 'wod/:name', component: WodViewComponent },
   {
     path: 'wodList',
-    component: WodListComponent,
+    component: WodComponent,
     data: { title: 'Wod List' }
   },
   {
@@ -23,8 +23,8 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [
-    WodListComponent,
     WodComponent,
+    WodViewComponent,
     AppComponent
   ],
   imports: [
