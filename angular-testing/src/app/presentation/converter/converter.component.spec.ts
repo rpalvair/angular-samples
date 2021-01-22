@@ -1,8 +1,7 @@
 import { ConverterComponent } from "./converter.component";
 import { DebugElement } from "@angular/core";
-import { ComponentFixture, TestBed, async } from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { DebugContext } from "@angular/core/src/view";
 import { FormsModule } from "@angular/forms";
 import { Base64Service } from "../../application/base64/base64.service";
 
@@ -14,7 +13,7 @@ describe("Tester le composant converter", () => {
   const base64ServiceMock = {};
 
   beforeEach(
-    async(() => {
+    waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [ConverterComponent],
         imports: [FormsModule],
