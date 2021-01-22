@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Wod } from "./wod";
 
 @Component({
     selector: 'wod',
@@ -6,5 +7,5 @@ import { Component } from "@angular/core";
     styleUrls: ['./wod.component.css']
   })
   export class WodComponent {
-
+    current: Wod;
   }
