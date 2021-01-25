@@ -1,6 +1,6 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Injectable } from "@angular/core";
-import { Message } from "../domain/message";
+import { Message } from "./message";
 
 @Injectable()
 export class InMemoryApiMessageService implements InMemoryDbService {

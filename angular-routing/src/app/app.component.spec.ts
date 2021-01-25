@@ -1,7 +1,11 @@
+import { ComponentFixture } from '@angular/core/testing';
+import { AppRoutingModule } from './app-routing.module';
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync  } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { Component } from '@angular/compiler/src/core';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -9,26 +13,14 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [AppRoutingModule]
     });
     TestBed.compileComponents();
   });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+  it('should create the app', waitForAsync (() => {
+    const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
+    const component: AppComponent = fixture.debugElement.componentInstance;
+    expect(component).toBeTruthy();
   }));
 });

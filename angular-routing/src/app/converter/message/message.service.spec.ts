@@ -1,5 +1,5 @@
 import { MessageExtractor } from './message.extractor';
-import { Message } from './../../domain/message';
+import { Message } from './message';
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";

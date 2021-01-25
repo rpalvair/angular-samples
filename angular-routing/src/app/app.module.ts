@@ -6,48 +6,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { NoPrefixValidatorDirective } from './directives/no-prefix.directive';
+import { ConverterComponent } from './converter/converter.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryApiMessageService } from './converter/message/In.memory.api.message.service';
+import { Base64Service } from './converter/base64/base64.service';
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: 'wod/:name', component: WodViewComponent },
-  {
-    path: 'wodList',
-    component: WodComponent,
-    data: { title: 'Wod List' }
-  },
-  {
-    path: 'create',
-    component: WodFormComponent,
-    data: { title: 'Create wod' }
-  },
-  {
-    path: '',
-    redirectTo: '/wodList',
-    pathMatch: 'full'
-  },
-  //{ path: '**', component: PageNotFoundComponent }
-];
 @NgModule({
   declarations: [
     WodComponent,
     WodViewComponent,
     AppComponent,
     WodFormComponent,
-    NoPrefixValidatorDirective
+    NoPrefixValidatorDirective,
+    ConverterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true, relativeLinkResolution: 'legacy' } // <-- debugging purposes only
- // <-- debugging purposes only
-    )
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryApiMessageService, {passThruUnknownUrl: true})
   ],
-  providers: [],
+  providers: [Base64Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

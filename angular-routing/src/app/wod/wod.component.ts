@@ -8,6 +8,8 @@ import { Wod } from "./wod";
 })
 export class WodComponent {
 
+    title = 'Wod Project';
+
     wods: Wod[] = this.getWodList();
     current: Wod;
 

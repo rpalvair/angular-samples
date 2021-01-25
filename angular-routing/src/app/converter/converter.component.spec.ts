@@ -3,7 +3,8 @@ import { DebugElement } from "@angular/core";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { Base64Service } from "../../application/base64/base64.service";
+import { Base64Service } from "./base64/base64.service";
+import { RouterModule } from "@angular/router";
 
 describe("Tester le composant converter", () => {
   let comp: ConverterComponent;

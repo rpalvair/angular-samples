@@ -1,7 +1,7 @@
 
 import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { MessageExtractor } from './message.extractor';
-import { Message } from "../../domain/message";
+import { Message } from "./message";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError } from 'rxjs/operators';
