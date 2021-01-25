@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Wod } from './wod';
+import { Wod } from '../wod';
 
 
 @Component({

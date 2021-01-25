@@ -13,8 +13,8 @@ export class WodComponent {
 
     private getWodList(): Wod[] {
         return [
-            new Wod("wod1"),
-            new Wod("wod2")
+            new Wod("wod1",null),
+            new Wod("wod2",null)
         ]
     }
 
